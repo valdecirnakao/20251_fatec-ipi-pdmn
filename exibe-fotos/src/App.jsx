@@ -14,15 +14,16 @@ class App extends React.Component {
     photos: []
   }
 
+  //assim que o componente for montado na árvore, construir o objeto com createClient, tal qual visto na documentação
   componentDidMount() {
-//    this.pexelsClient = createClient(env.PEXELS_KEY)
+    //    this.pexelsClient = createClient(env.PEXELS_KEY)
   }
 
   onBuscaRealizada = (termo) => {
     pexelsClient.get('/search', {
       params: {
         query: termo,
-        per_page: 5
+        per_page: 15
       }
     }).then(result => this.setState({ photos: result.data.photos }))
   }
@@ -51,7 +52,9 @@ class App extends React.Component {
             onBuscaRealizada={this.onBuscaRealizada} />
         </div>
         <div className='col-12'>
-          <ListaImagens photos={this.state.photos} />
+          <div className='grid'>
+            <ListaImagens imgStyle={'col-12 md:col-6 lg:col-4 xl:col-3'} photos={this.state.photos} />
+          </div>
         </div>
       </div>
     )
