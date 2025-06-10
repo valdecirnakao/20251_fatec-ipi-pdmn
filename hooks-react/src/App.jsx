@@ -1,5 +1,6 @@
 import React from 'react'
 import Accordion from './components/Accordion'
+import Busca from './components/Busca'
 
 const itens = [
     {
@@ -17,14 +18,21 @@ const itens = [
 ]
 
 const App = () => {
-  return (
-    <div>
-        {/* passar a lista via props, associando ela a um props chamdo itens */}
-        <Accordion 
-          itens = {itens}
-        />
-    </div>
-  )
+    const expressaoJSX = <Busca />
+    return (
+        <div>
+            {expressaoJSX}
+        </div>
+    )
+
+//   return (
+//     <div>
+//         {/* passar a lista via props, associando ela a um props chamdo itens */}
+//         <Accordion 
+//           itens = {itens}
+//         />
+//     </div>
+//   )
 }
 
 export default App
